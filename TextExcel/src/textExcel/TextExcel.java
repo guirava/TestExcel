@@ -8,21 +8,22 @@ import java.util.Scanner;
 public class TextExcel {
 
 	public static void main(String[] args) {
-		// Add your command loop here
+		var sheet = new Spreadsheet();
+		
+		// start by printing the empty sheet
+		System.out.println(sheet.getGridText());
+
+		// input loop
 		Scanner scanner = new Scanner(System.in);
 		String input;
 		while (true) {
 			System.out.print("TextExcel> ");
 			input = scanner.nextLine();
-			if (input.toLowerCase().equals("quit")) {
+			if (input.trim().toLowerCase().equals("quit")) {
 				break;
 			}
-			System.out.println(processInput(input));
+			System.out.println(sheet.processCommand(input));
 		}
 		scanner.close();
-	}
-
-	public static String processInput(String input) {
-		return "NOT IMPLEMENTED";
 	}
 }

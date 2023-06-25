@@ -8,20 +8,12 @@ public class TextCell implements Cell {
     }
 
     @Override
-    public String abbreviatedCellText() {
-        String abbreviatedText = text;
-        if (text.length() > 10) {
-            abbreviatedText = text.substring(0, 10);
-        } else {
-            for (int i = text.length(); i < 10; i++) {
-                abbreviatedText += " ";
-            }
-        }
-        return abbreviatedText;
+    public String fullCellText() {
+        return "\"" + text + "\"";
     }
 
     @Override
-    public String fullCellText() {
-        return "\"" + text + "\"";
+    public String abbreviatedCellText() {
+        return Utils.fixedWidth(text);
     }
 }
